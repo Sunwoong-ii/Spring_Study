@@ -18,8 +18,11 @@ public class MakeRandomString {
 	 * 				생성자 주입을 하면 애플리케이션 실행 시점에 확인 가능하다.)
 	 * 4. DI컨테이너가 결합도가 낮기 때문에 테스트하기 좋다. 
 	 */
-	
-	@Autowired
+
+	public MakeRandomString() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public MakeRandomString(RandomGenerator random) {
 //		스프링 4.3 이후부터 생성자에 주입할 시 생성자가 한 개뿐이라면 
 //		해당 생성자에 @Autowired어노테이션을 생략해도 자동으로 주입해준다.
