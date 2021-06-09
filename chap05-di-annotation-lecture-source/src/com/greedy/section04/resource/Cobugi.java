@@ -3,7 +3,7 @@ package com.greedy.section04.resource;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Cobugi implements Poketmon{
 
 	@Override

@@ -2,7 +2,7 @@ package com.greedy.section05.inject;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Piry implements Poketmon{
 
 	@Override

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Application {
 
 	public static void main(String[] args) {
-		
+
 		/*
 		 * 스프링 전용인 @Autowired 대신 자바 표준 어노테이션 @Resource로 POJO 연결
 		 * 
@@ -22,8 +22,8 @@ public class Application {
 		PoketmonService service = context.getBean(PoketmonService.class);
 
 		service.poketmonAttack();
-		
-		
+
+
 
 	}
 

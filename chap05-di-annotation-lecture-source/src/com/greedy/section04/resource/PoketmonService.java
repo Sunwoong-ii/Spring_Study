@@ -24,7 +24,7 @@ public class PoketmonService {
 //	public void poketmonAttack() {
 //		poketmon.attack();
 //	}
-	
+
 //	@Resource
 //	@Qualifier("pikachu")
 //	private List<Poketmon> poketmonList;
@@ -34,7 +34,7 @@ public class PoketmonService {
 //			p.attack();
 //		}
 //	}
-	
+
 //	2. 같은 타입의 bean이 한개 일때 (피카추)
 //	private Poketmon poketmon;
 
@@ -45,7 +45,7 @@ public class PoketmonService {
 //	public PoketmonService(Poketmon poketmon) {
 //		this.poketmon = poketmon;
 //	}
-	
+
 	/*
 	 * @Resource는 세터주입은 가능하다.
 	 */
@@ -55,13 +55,13 @@ public class PoketmonService {
 	public void setPoketmon(Poketmon poketmon) {
 		this.poketmon = poketmon;
 	}
-	
+
 	public void poketmonAttack() {
 		poketmon.attack();
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

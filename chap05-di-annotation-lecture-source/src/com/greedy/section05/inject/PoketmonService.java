@@ -3,6 +3,8 @@ package com.greedy.section05.inject;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -11,57 +13,54 @@ import org.springframework.stereotype.Component;
 public class PoketmonService {
 
 	/*
-	 * autowire은 타입 -> 복수의 경우 에러 발생 -> qualifier로 아이디로 찾기
-	 * 
-	 * 기본적으로 이름으로 주입받는다. 하지만 빈의 이름이 일치하지 않으면 타입으로 주입받는다.
-	 * 하지만 동일한 타입의 bean이 있는 경우에는 주입받지 못한다.
-	 * 
-	 * 1. 같은 타입의 bean이 여러개
+	 * @Inject는 @Autowired와 유사하게 타입을 이용해서 빈을 자동 연결한다. 마찬가지로 bean이 여러개면 모호성으로 인해 의존성을
+	 * 주입할 수 없다. 컬렉션 형태로 변경하면 가능하다.
 	 */
-//	@Resource(name = "cobugi")
+
+//	1. 필드 주입
+//	@Inject
+//	@Named("cobugi") // 같은 타입의 여러 빈을 collection 으로 받을 때 이걸로 bean을 선택할 수 있다.
+//	@Qualifier("cobugi") // import를 스프링용으로 하면 적용 가능
 //	private Poketmon poketmon;
 //	
 //	public void poketmonAttack() {
 //		poketmon.attack();
 //	}
-	
-//	@Resource
-//	@Qualifier("pikachu")
-//	private List<Poketmon> poketmonList;
-//	
-//	public void poketmonAttack() {
-//		for(Poketmon p : poketmonList) {
-//			p.attack();
-//		}
-//	}
-	
-//	2. 같은 타입의 bean이 한개 일때 (피카추)
-//	private Poketmon poketmon;
 
 	/*
-	 * @Resource는 생성자 주입을 하지 못한다.(애초에 에러 발생)
-	 */
-//	@Resource
-//	public PoketmonService(Poketmon poketmon) {
-//		this.poketmon = poketmon;
-//	}
-	
-	/*
-	 * @Resource는 세터주입은 가능하다.
+	 * 2. 생성자 주입
 	 */
 	private Poketmon poketmon;
 
-	@Resource
-	public void setPoketmon(Poketmon poketmon) {
+//	@Inject
+//	@Named("cobugi")
+//	public PoketmonService(Poketmon poketmon) {
+//		this.poketmon = poketmon;
+//	}
+
+//	파라미터 레벨에서 사용 가능
+//	@Inject
+//	public PoketmonService(@Named("cobugi") Poketmon poketmon) {
+//		this.poketmon = poketmon;
+//	}
+
+	/*
+	 * 3. 세터 주입
+	 */
+//	@Inject
+//	@Named("cobugi")
+//	public void setPoketmon(Poketmon poketmon) {
+//		this.poketmon = poketmon;
+//	}
+	
+	@Inject
+	public void setPoketmon(@Named("cobugi") Poketmon poketmon) {
 		this.poketmon = poketmon;
 	}
-	
+
 	public void poketmonAttack() {
 		poketmon.attack();
 	}
-	
-	
-	
-	
+
 
 }
