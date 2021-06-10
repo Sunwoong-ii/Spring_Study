@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="carpBrad" class="com.greedy.section02.prototype.xmlconfig.Bread">
+		<constructor-arg name="name" value="단팥빵"/>
+		<constructor-arg name="price" value="5000"/>
+		<constructor-arg name="bakedDate" ref="today"/>
+	</bean>
+	
+	<bean id="today" class="java.util.Date"/>
+	
+	<bean id="milk" class="com.greedy.section02.prototype.xmlconfig.Beverage">
+		<constructor-arg name="name" value="딸기우유"/>
+		<constructor-arg name="price" value="2000"/>
+		<constructor-arg name="capcity" value="1000"/>
+	</bean>
+	
+	<bean id="water" class="com.greedy.section02.prototype.xmlconfig.Beverage">
+		<constructor-arg name="name" value="지리산암반수"/>
+		<constructor-arg name="price" value="500"/>
+		<constructor-arg name="capcity" value="5000"/>
+	</bean>
+	
+	<bean id="cart" class="com.greedy.section02.prototype.xmlconfig.ShoppingCart" scope="prototype"/>
+
+</beans>
