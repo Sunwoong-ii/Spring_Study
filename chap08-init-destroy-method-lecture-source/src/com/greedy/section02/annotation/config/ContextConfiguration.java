@@ -1,8 +1,7 @@
 package com.greedy.section02.annotation.config;
 
 import org.springframework.context.annotation.Bean;
-
-
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
@@ -14,6 +13,7 @@ import com.greedy.section02.annotation.ShoppingCart;
 
 
 @Configuration
+@ComponentScan(basePackages = "com.greedy.section02.annotation")
 public class ContextConfiguration {
 	
 	@Bean
