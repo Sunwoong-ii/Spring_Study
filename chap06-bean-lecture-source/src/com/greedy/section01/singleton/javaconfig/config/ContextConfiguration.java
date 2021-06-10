@@ -28,7 +28,7 @@ public class ContextConfiguration {
 	}
 	
 	@Bean
-	@Scope("prototype") //기본값
+	@Scope("singleton") //기본값
 	public ShoppingCart cart() {
 		return new ShoppingCart();
 	}
