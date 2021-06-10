@@ -2,13 +2,14 @@ package com.greedy.section01.singleton.xmlconfig;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.greedy.section01.singleton.javaconfig.config.ContextConfiguration;
 
 public class Application {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(ContextConfiguration.class);
+		ApplicationContext context = new GenericXmlApplicationContext("com/greedy/section01/singleton/xmlconfig/config/spring-config.xml");
 		
 		
 		String[] beanNames = context.getBeanDefinitionNames();
