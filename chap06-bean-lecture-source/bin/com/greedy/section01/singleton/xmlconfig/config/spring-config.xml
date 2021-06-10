@@ -25,6 +25,6 @@
 		<constructor-arg name="capcity" value="5000"/>
 	</bean>
 	
-	<bean id="cart" class="com.greedy.section01.singleton.xmlconfig.ShoppingCart"/>
+	<bean id="cart" class="com.greedy.section01.singleton.xmlconfig.ShoppingCart" scope="singleton"/>
 
 </beans>
