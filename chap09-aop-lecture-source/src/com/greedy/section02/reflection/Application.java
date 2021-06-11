@@ -96,6 +96,10 @@ public class Application {
 			}
 		}
 		
+		System.out.println("constructors0 "+constructors[0]);
+		System.out.println("constructors1 "+constructors[1]);
+		System.out.println("constructors2 "+constructors[2]);
+		
 		Account acc;
 		try {
 			

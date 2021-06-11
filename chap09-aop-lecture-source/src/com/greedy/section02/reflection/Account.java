@@ -11,7 +11,6 @@ public class Account {
 		
 	}
 	
-	
 	public Account(String bankCode, String accNo, String accPwd) {
 		super();
 		this.bankCode = bankCode;
@@ -28,6 +27,8 @@ public class Account {
 		this.balance = balance;
 	}
 
+	
+	
 	public String getBalance() {
 		return this.accNo + " 계좌의 현재 잔액은 " + this.balance + " 원 입니다.";
 	}
