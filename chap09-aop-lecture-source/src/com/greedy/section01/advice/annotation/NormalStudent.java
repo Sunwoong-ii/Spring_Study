@@ -20,7 +20,7 @@ public class NormalStudent implements Student{
 		
 		int difficulty = 5; //난이도
 		
-		for(int i = 1; i <= 8; i++) {
+		for(int i = 1; i <= 4; i++) {
 			System.out.println(i + "교시 수업을 열심히 듣습니다. 오~ 프로그램이 뭔지 알 것 같다!");
 			System.out.println("이해도와 만족도가 열정에 비례하여 자꾸 올라갑니다.");
 			understandingScore += difficulty + passionScore;

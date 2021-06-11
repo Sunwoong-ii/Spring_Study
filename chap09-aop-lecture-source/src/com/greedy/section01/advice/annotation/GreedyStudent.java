@@ -20,7 +20,7 @@ public class GreedyStudent implements Student{
 		
 		int difficulty = 10; //난이도
 		
-		for(int i = 1; i <= 8; i++) {
+		for(int i = 1; i <= 4; i++) {
 			System.out.println(i + "교시 수업을 열심히 듣습니다. 하지만 너무 어렵습니다.");
 			System.out.println("이해도와 만족도가 열정에 비례하여 자꾸 떨어집니다.");
 			understandingScore -= difficulty * passionScore;

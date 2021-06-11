@@ -18,7 +18,8 @@ public class BeforeAttendingAdvice {
 //	포인트컷은 여러 조인포인트를 매치하기 위해 지정한 표현식이고, 이렇게 매치된 조인포인트에서  해야 할 일이 어드바이스이다.
 	
 //	매개변수로 전달한 JoinPoint 객체는 현재 조인포인트의 메소드명, 인수값 등의 자세한 정보를 액세스 할 수 있다.
-	@Before("execution(* com.greedy.section01.advice.annotation..*(..))")
+//	@Before("execution(* com.greedy.section01.advice.annotation..*(..))")
+	@Before("StudentPointcut.studyPointcut()")
 	public void beforeAttending(JoinPoint joinPoint) {
 		
 		System.out.println("========== before attending =========");
