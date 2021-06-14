@@ -1,6 +1,7 @@
 package com.greedy.section01.connection.javaconfig.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
