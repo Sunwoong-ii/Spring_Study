@@ -34,9 +34,9 @@ public class PoketmonService {
 	 * 2. Map 타입으로 주입받기
 	 */
 	
+	@Autowired
 	private Map<String, Poketmon> poketmonMap;
 
-	@Autowired
 	public PoketmonService(Map<String, Poketmon> poketmonMap) {
 		super();
 		this.poketmonMap = poketmonMap;
