@@ -17,10 +17,11 @@
 	<classpathentry kind="lib" path="lib/spring-beans-5.2.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-context-5.2.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-core-5.2.9.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-dao-2.0.8.jar"/>
 	<classpathentry kind="lib" path="lib/spring-expression-5.2.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-jdbc-5.2.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-tx-5.2.9.RELEASE.jar"/>
 	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="lib" path="lib/aspectjrt-1.9.6.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjweaver-1.9.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
