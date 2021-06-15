@@ -1,14 +1,19 @@
 package com.greedy.section01.programmatic.model.service;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.greedy.section01.programmatic.model.dao.OrderMapper;
 import com.greedy.section01.programmatic.model.dto.OrderDTO;
+import com.greedy.section01.programmatic.model.dto.OrderMenuDTO;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
@@ -102,7 +107,41 @@ public class OrderServiceImpl implements OrderService {
 		 * 			처음 트랜잭션이 같은 테이블을 다시 읽으면 자신이 처음 읽었을 때 와 달리 새로 추가된 로우가 있을것이다.
 		 * 			이것을 허상읽기 라고 한다. (재현 불가능한 읽기와 유사하지만 허살 읽기는 여러 로우가 추가되는 경우를 말한다.)
 		 */
-		return 0;
+		def.setIsolationLevel(DefaultTransactionDefinition.ISOLATION_SERIALIZABLE);
+		
+//		트랜잭션에 대한 실행을 제어하거나, 트랜잭션 상태등을 조회할 수 있다. 
+		TransactionStatus status = transactionManager.getTransaction(def);
+		
+		/*
+		 * 트랜잭션을 수동으로 할 수 있도록 설정한다.
+		 */
+		try {
+			sqlSession.getConnection().setAutoCommit(false);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+		int orderResult = orderMapper.insertOrder(order);
+		
+		List<OrderMenuDTO> orderMenuList = order.getMenuList();
+		int orderMenuResult = 0;
+		
+		for(OrderMenuDTO menu :  orderMenuList) {
+			orderMenuResult += orderMapper.insertOrderMenu(menu);
+		}
+		
+		int result = 0;
+		if(orderResult > 0 && orderMenuResult == order.getMenuList().size()) {
+			result = 1;
+			transactionManager.commit(status);
+		} else {
+			transactionManager.rollback(status);
+		}
+	
+		return result;
 	}
 
 }

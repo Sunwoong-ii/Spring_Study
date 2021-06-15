@@ -63,7 +63,7 @@ public class Application {
 	      order.setMenuList(orderMenuList);
 	      System.out.println(order);
 	      
-	      if(orderService.registOrder(order) > 0) {
+	      if(orderService.registOrder2(order) > 0) {
 	    	  System.out.println("주문이 완료 되었씁니다.");
 	      } else {
 	    	  System.out.println("주문 쉴패");
